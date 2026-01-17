@@ -2,6 +2,7 @@ const express=require('express');
 const hotelRouter=require('./routes/hotel.router');
 const categoryRouter=require('./routes/category.router');
 const singleHotelRouter=require('./routes/singlehotel.router');
+const wishlist=require('./routes/wishlist.router');
 
 const dotenv=require('dotenv');
 
@@ -31,6 +32,7 @@ app.use('/api/categorydata',categoryDataAddedToDBRouter);
 app.use('/api/category', categoryRouter);
 app.use('/api/hotels', singleHotelRouter);
 app.use('/api/auth',authRouter);
+app.use('/api/wishlist',wishlist);
 
 mongoose.connection.once('open', ()=>{
     console.log("Connected to DB");
